@@ -1,0 +1,9 @@
+// Input - Output Locations
+{
+    "compilerOptions": {
+        // where we will store our files
+        "rootDir": "./src",
+        // all files that will transpile
+        "outDir": "./dist"
+    }
+}
