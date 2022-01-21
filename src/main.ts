@@ -202,14 +202,25 @@ const statuses = {
 console.log(statuses.running)
 
 // with enums
-enum Status {
+enum StatusEnum {
     disabled,
     inprogress,
     done,
 }
 
-console.log(Status.inprogress)
+console.log(StatusEnum.inprogress)
 
 // We get the same result but we don't write values 
 // Also we can use it as a data type 
 
+interface Task {
+    name: string;
+    status: StatusEnum;
+};
+
+const t1:Task = {
+    name: 'Cleaning',
+    status: StatusEnum.disabled
+};
+
+console.log(t1.status)

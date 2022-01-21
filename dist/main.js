@@ -159,12 +159,16 @@ var statuses = {
 };
 console.log(statuses.running);
 // with enums
-var Status;
-(function (Status) {
-    Status[Status["disabled"] = 0] = "disabled";
-    Status[Status["inprogress"] = 1] = "inprogress";
-    Status[Status["done"] = 2] = "done";
-})(Status || (Status = {}));
-console.log(Status.inprogress);
-// We get the same result but we don't write values 
-// Also we can use it as a data type 
+var StatusEnum;
+(function (StatusEnum) {
+    StatusEnum[StatusEnum["disabled"] = 0] = "disabled";
+    StatusEnum[StatusEnum["inprogress"] = 1] = "inprogress";
+    StatusEnum[StatusEnum["done"] = 2] = "done";
+})(StatusEnum || (StatusEnum = {}));
+console.log(StatusEnum.inprogress);
+;
+var t1 = {
+    name: 'Cleaning',
+    status: StatusEnum.disabled
+};
+console.log(t1.status);
