@@ -13,6 +13,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var a = 1;
 // use let when is volatile, const when is constant
 var hello = "world";
@@ -116,3 +127,44 @@ var Movie = /** @class */ (function (_super) {
 }(Anime));
 var m1 = new Movie(1);
 console.log(m1.getEpisodes());
+// generic Interfaces and Function in typescript
+// generic Function
+var addId = function (obj) {
+    var id = Math.random().toString(14);
+    return __assign(__assign({}, obj), { id: id });
+};
+// for every interface we can change the data
+// string
+var kid = {
+    name: "Nikos",
+    data: {
+        meta: "foo"
+    }
+};
+// string array
+var kid2 = {
+    name: "Larry",
+    data: {
+        meta: ["kota", "rizi"]
+    }
+};
+var result = addId(kid2);
+console.log(result);
+// Enums
+// normal code 
+var statuses = {
+    disabled: 0,
+    running: 1,
+    done: 2
+};
+console.log(statuses.running);
+// with enums
+var Status;
+(function (Status) {
+    Status[Status["disabled"] = 0] = "disabled";
+    Status[Status["inprogress"] = 1] = "inprogress";
+    Status[Status["done"] = 2] = "done";
+})(Status || (Status = {}));
+console.log(Status.inprogress);
+// We get the same result but we don't write values 
+// Also we can use it as a data type 

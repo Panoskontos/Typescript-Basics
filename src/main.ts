@@ -154,3 +154,62 @@ class Movie extends Anime {
 
 const m1 = new Movie(1);
 console.log(m1.getEpisodes())
+
+
+// generic Interfaces and Function in typescript
+
+// generic Function
+const addId =<T>(obj: T) => {
+    const id = Math.random().toString(14);
+    return {
+        ...obj, id
+    };
+};
+
+// generic interface
+interface KidInterface<T> {
+    name:string;
+    data:T;
+}
+
+// for every interface we can change the data
+// string
+const kid: KidInterface<{meta: string}> = {
+    name:"Nikos",
+    data: {
+        meta: "foo",
+    }
+};
+// string array
+const kid2: KidInterface<{meta: string[]}> = {
+    name: "Larry",
+    data: {
+        meta: ["kota","rizi"]
+    }
+}
+
+const result = addId(kid2);
+console.log(result);
+
+// Enums
+
+// normal code 
+const statuses = {
+    disabled: 0,
+    running: 1,
+    done: 2,
+}
+console.log(statuses.running)
+
+// with enums
+enum Status {
+    disabled,
+    inprogress,
+    done,
+}
+
+console.log(Status.inprogress)
+
+// We get the same result but we don't write values 
+// Also we can use it as a data type 
+
